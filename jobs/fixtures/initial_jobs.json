@@ -1,0 +1,27 @@
+[
+    {
+        "model": "jobs.job", 
+        "pk": 1, 
+        "fields": {
+
+            "customerName": "John Doe",
+            "jobType": "Plumbing",
+            "status": "Scheduled",
+            "appointmentDate": "2024-06-15T09:00:00Z",
+            "technician": "Jane Smith"
+        }     
+    },
+    {
+        "model": "jobs.job", 
+        "pk": 2,
+        "fields": {
+
+            "customerName": "Alice Johnson",
+            "jobType": "Electrical",
+            "status": "Completed",
+            "appointmentDate": "2024-05-20T14:00:00Z",
+            "technician": "Bob Brown"
+        }
+        
+    }
+]
