@@ -1,10 +1,30 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import Job
 from .serializers import JobSerializer
 
+#Classes for Views 
+class JobListView(ListView):
+    model = Job
+    template_name = 'jobs/home.html'
+
+class JobDetailView(DetailView):
+    model = Job
+    template_name = 'jobs/detail.html'
+    context_object_name = 'job'
+
+class JobCreateView(CreateView):
+    model = Job
+    template_name = 'jobs/create.html'
+    fields = ['customerName', 'jobType', 'status', 'appointmentDate', 'technician']
+
+class JobUpdateView(UpdateView):
+    model = Job
+    template_name = 'jobs/detail.html'
+    fields = ['customerName', 'jobType', 'status', 'appointmentDate', 'technician'] 
 
 
 @api_view(['GET', 'POST'])
@@ -45,8 +65,6 @@ def jobActions(request, pk):
         job.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-def jobList(request):
-    return render(request, 'jobs/job_list.html')
 
 
 

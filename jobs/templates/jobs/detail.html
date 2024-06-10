@@ -1,0 +1,57 @@
+
+{% extends 'jobs/base.html' %}
+
+{% block content %}
+
+
+    <div>
+        <h3>Job Details</h3>
+        <p><strong>Customer Name: </strong>{{job.customerName}}</p>
+        <p><strong>Job Type: </strong>{{job.jobType}}</p>
+        <p><strong>Status: </strong>{{job.status}}</p>
+        <p><strong>Appointment Date: </strong>{{job.appointmentDate}}</p>
+        <p><strong>Technician: </strong>{{job.technician}}</p>
+
+        <button id="update-button" class="btn btn-primary" data-job-id="{{ job.id }}">
+            Update
+        </button>
+        <button id="delete-button" class="btn btn-danger" data-job-id="{{ job.id }}">
+            Delete
+        </button>
+    </div>
+
+    <div id="update-form-container" style="display:none">
+        <h3>Update Job</h3>
+        <form id="update-job-form">
+            
+            <div class="form-group">
+                <label>Customer Name</label>
+                <input type="text", class="form-control" id="update-customer" name="customerName" required>
+            </div>
+            <div class="form-group">
+                <label>Job Type</label>
+                <input type="text", class="form-control" id="update-type" name="jobType" required>
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <input type="text", class="form-control" id="update-status" name="status" required>
+            </div>
+            <div class="form-group">
+                <label>Appointment Date</label>
+                <input type="datetime-local", class="form-control" id="update-date" name="appointmentDate" required>
+            </div>
+            <div class="form-group">
+                <label>Technician</label>
+                <input type="text", class="form-control" id="update-technician" name="technician" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Job</button>
+            
+        </form>
+    </div>
+
+    
+
+
+{% endblock %}
+
+<!-- Update Job Form -->
